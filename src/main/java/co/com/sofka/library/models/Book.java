@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Document(collection = "Books")
+@Document(collection = "books")
 public class Book {
     private String id = UUID.randomUUID().toString().substring(0, 10);
     private String Title;
