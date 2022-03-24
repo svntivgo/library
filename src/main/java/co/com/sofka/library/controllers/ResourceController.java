@@ -21,13 +21,13 @@ public class ResourceController {
     }
 
     @GetMapping("/resource/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.FOUND)
     private Mono<Resource> getResourceById (@PathVariable("id") String id) {
         return service.getResourceById(id);
     }
 
     @GetMapping("/resource")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.FOUND)
     private Flux<Resource> getResources () {
         return service.getResources();
     }
