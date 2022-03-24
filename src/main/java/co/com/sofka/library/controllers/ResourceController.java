@@ -43,4 +43,10 @@ public class ResourceController {
     private Mono<Resource> updateResourceById (@PathVariable("id") String id, @RequestBody Resource resource) {
         return service.updateResoruceById(id, resource);
     }
+
+    @GetMapping("/resource/title/{title}")
+    @ResponseStatus(HttpStatus.FOUND)
+    private Flux<Resource> isResourceAvailable (@PathVariable("title") String title) {
+        return service.isResoruceAvailable(title);
+    }
 }
