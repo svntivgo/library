@@ -1,4 +1,4 @@
-package co.com.sofka.library.repositories.services;
+package co.com.sofka.library.services;
 
 import co.com.sofka.library.models.Book;
 import co.com.sofka.library.repositories.BookRepository;
