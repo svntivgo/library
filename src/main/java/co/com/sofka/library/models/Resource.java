@@ -18,9 +18,10 @@ public class Resource {
     private LocalDate borrowDate;
     private Boolean available = true;
 
-    public Resource(String title, String autor, String type, String category) {
+    public Resource(String title, String author, String type, String category) {
         this.title = title;
-        this.author = autor;
+        this.author = author;
+        this.type = type;
         this.category = category;
     }
 
