@@ -31,4 +31,10 @@ public class ResourceController {
     private Flux<Resource> getResources () {
         return service.getResources();
     }
+
+    @DeleteMapping("/resource/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    private Mono<Void> deleteResourceById (@PathVariable("id") String id) {
+        return service.deleteResourceById(id);
+    }
 }

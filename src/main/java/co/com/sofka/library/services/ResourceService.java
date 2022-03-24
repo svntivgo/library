@@ -23,4 +23,8 @@ public class ResourceService {
     public Flux<Resource> getResources () {
         return repository.findAll();
     }
+
+    public Mono<Void> deleteResourceById (String id) {
+        return repository.deleteById(id);
+    }
 }
