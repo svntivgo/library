@@ -20,7 +20,7 @@ public class ResourceService {
         return repository.findById(id);
     }
 
-    public Flux<Resource> getResources (String id) {
+    public Flux<Resource> getResources () {
         return repository.findAll();
     }
 }
