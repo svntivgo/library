@@ -27,4 +27,8 @@ public class ResourceService {
     public Mono<Void> deleteResourceById (String id) {
         return repository.deleteById(id);
     }
+
+    public Mono<Resource> updateResoruceById (String id, Resource resource) {
+        return
+    }
 }
