@@ -14,4 +14,8 @@ public class BookService {
     public Mono<Book> addBook (Book book) {
         return repository.save(book);
     }
+
+    public Mono<Book> getBookById (String id) {
+        return repository.findById(id);
+    }
 }
