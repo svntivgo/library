@@ -1,5 +1,6 @@
 package co.com.sofka.library.models;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
@@ -7,15 +8,17 @@ import java.util.UUID;
 
 @Document(collection = "books")
 public class Book {
+
+    @Id
     private String id = UUID.randomUUID().toString().substring(0, 10);
-    private String Title;
+    private String title;
     private String autor;
     private String category;
     private LocalDate borrowDate;
     private Boolean available = true;
 
     public Book(String title, String autor, String category) {
-        Title = title;
+        this.title = title;
         this.autor = autor;
         this.category = category;
     }
@@ -25,11 +28,11 @@ public class Book {
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getAutor() {

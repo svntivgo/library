@@ -20,8 +20,8 @@ public class BookController {
     }
 
     @GetMapping("/book/{id}")
-    @ResponseStatus(HttpStatus.FOUND)
-    private Mono<Book> addBook (@PathVariable("id") String id) {
+    @ResponseStatus(HttpStatus.OK)
+    private Mono<Book> getBookById (@PathVariable("id") String id) {
         return service.getBookById(id);
     }
 }
