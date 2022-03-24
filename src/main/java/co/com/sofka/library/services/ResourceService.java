@@ -29,6 +29,10 @@ public class ResourceService {
     }
 
     public Mono<Resource> updateResoruceById (String id, Resource resource) {
-        return
+        return repository.findById(id)
+                .flatMap(object -> {
+                    resource.setId(id);
+                    return repository.save(resource);
+                });
     }
 }
