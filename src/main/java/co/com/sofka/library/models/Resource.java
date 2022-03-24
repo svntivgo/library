@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Document(collection = "books")
-public class Book {
+public class Resource {
 
     @Id
     private String id = UUID.randomUUID().toString().substring(0, 10);
@@ -18,7 +18,7 @@ public class Book {
     private LocalDate borrowDate;
     private Boolean available = true;
 
-    public Book(String title, String autor, String type, String category) {
+    public Resource(String title, String autor, String type, String category) {
         this.title = title;
         this.author = autor;
         this.category = category;
