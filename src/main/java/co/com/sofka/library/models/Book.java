@@ -12,14 +12,15 @@ public class Book {
     @Id
     private String id = UUID.randomUUID().toString().substring(0, 10);
     private String title;
-    private String autor;
+    private String author;
+    private String type;
     private String category;
     private LocalDate borrowDate;
     private Boolean available = true;
 
-    public Book(String title, String autor, String category) {
+    public Book(String title, String autor, String type, String category) {
         this.title = title;
-        this.autor = autor;
+        this.author = autor;
         this.category = category;
     }
 
@@ -35,12 +36,20 @@ public class Book {
         this.title = title;
     }
 
-    public String getAutor() {
-        return autor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getCategory() {
