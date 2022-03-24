@@ -3,6 +3,7 @@ package co.com.sofka.library.services;
 import co.com.sofka.library.models.Resource;
 import co.com.sofka.library.repositories.ResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -33,6 +34,13 @@ public class ResourceService {
                 .flatMap(object -> {
                     resource.setId(id);
                     return repository.save(resource);
+                });
+    }
+
+    public Flux<Resource> isResoruceAvailable (String title) {
+        return repository.findByTitle(title)
+                .filter(resource -> {
+                    return resource.getAvailable();
                 });
     }
 }
