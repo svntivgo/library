@@ -37,4 +37,10 @@ public class ResourceController {
     private Mono<Void> deleteResourceById (@PathVariable("id") String id) {
         return service.deleteResourceById(id);
     }
+
+    @PutMapping("/resource/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    private Mono<Resource> updateResourceById (@PathVariable("id") String id, @RequestBody Resource resource) {
+        return service.updateResoruceById(id, resource);
+    }
 }
