@@ -16,12 +16,12 @@ public class ResourceController {
     @PostMapping("/resource")
     @ResponseStatus(HttpStatus.CREATED)
     private Mono<Resource> addBook (@RequestBody Resource resource) {
-        return service.addBook(resource);
+        return service.addResource(resource);
     }
 
     @GetMapping("/resource/{id}")
     @ResponseStatus(HttpStatus.OK)
     private Mono<Resource> getBookById (@PathVariable("id") String id) {
-        return service.getBookById(id);
+        return service.getResourceById(id);
     }
 }
