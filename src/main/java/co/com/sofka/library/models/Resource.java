@@ -23,6 +23,7 @@ public class Resource {
         this.author = author;
         this.type = type;
         this.category = category;
+        this.borrowDate = LocalDate.now();
     }
 
     public String getId() {
@@ -79,5 +80,33 @@ public class Resource {
 
     public void setAvailable(Boolean available) {
         this.available = available;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Resource resource = (Resource) o;
+
+        if (id != null ? !id.equals(resource.id) : resource.id != null) return false;
+        if (title != null ? !title.equals(resource.title) : resource.title != null) return false;
+        if (author != null ? !author.equals(resource.author) : resource.author != null) return false;
+        if (type != null ? !type.equals(resource.type) : resource.type != null) return false;
+        if (category != null ? !category.equals(resource.category) : resource.category != null) return false;
+        if (borrowDate != null ? !borrowDate.equals(resource.borrowDate) : resource.borrowDate != null) return false;
+        return available != null ? available.equals(resource.available) : resource.available == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (author != null ? author.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (category != null ? category.hashCode() : 0);
+        result = 31 * result + (borrowDate != null ? borrowDate.hashCode() : 0);
+        result = 31 * result + (available != null ? available.hashCode() : 0);
+        return result;
     }
 }

@@ -46,7 +46,7 @@ public class ResourceController {
 
     @GetMapping("/resource/title/{title}")
     @ResponseStatus(HttpStatus.FOUND)
-    private Flux<Resource> isResourceAvailable (@PathVariable("title") String title) {
-        return service.isResoruceAvailable(title);
+    private String isResourceAvailable (@PathVariable("title") String title) {
+        return service.isResourceAvailable(title);
     }
 }

@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 @Service
 public class ResourceService {
     @Autowired
@@ -37,10 +41,21 @@ public class ResourceService {
                 });
     }
 
-    public Flux<Resource> isResoruceAvailable (String title) {
-        return repository.findByTitle(title)
-                .filter(resource -> {
-                    return resource.getAvailable();
-                });
+    public String isResourceAvailable (String title) {
+        Flux<Resource> unavailableResources = repository.findByTitle(title)
+                .sort(Comparator.comparing(resource -> resource.getBorrowDate()))
+                .filter(resource -> !resource.getAvailable());
+
+        Flux<Resource> availableResources = repository.findByTitle(title)
+                .filter(resource -> resource.getAvailable());
+
+        Resource resourceFalse = unavailableResources.blockLast();
+
+        if (availableResources.blockFirst() == null) {
+            return "El recurso no esta disponible, el ultimo ejemplar fue prestado en: " + resourceFalse.getBorrowDate();
+        }
+
+        return "El recurso está disponible";
+
     }
 }
