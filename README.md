@@ -1,6 +1,6 @@
 # library
 
-Back para librería usando spring y reactive mongo, almacenando datos en Mongo Atlas.
+Back para biblioteca usando spring y reactive mongo, almacenando datos en Mongo Atlas.
 
 Video explicación:
 
